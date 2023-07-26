@@ -1,0 +1,52 @@
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    text-align: center;
+    background-color: aqua;
+    color: whitesmoke;
+}
+
+.container{
+    display: flex;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+}
+
+.drawing-area {
+    flex-grow: 1; /* Allow drawing area to grow and take available space */
+    max-height: calc(100% - 200px);
+    max-width: calc(100% - 200px); /* Limit drawing area to maximum width minus buttons width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    width: 100%;
+}
+
+.grid-item {
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: #ccc;
+    border: 1px solid #000;
+}
+
+.grid-item.active {
+    background-color: #ff9; /* Yeni renk */
+}
