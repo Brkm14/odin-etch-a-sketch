@@ -110,7 +110,7 @@ function toggleEraserMode() {
     }
 }
 
-function changeColorWithRainbowMode(item) {
+function paintCell(item) {
     if (isRainbowMode) {
         item.style.backgroundColor = getRandomColor(); // Set the background color to a random color
     } else if (isEraserMode) {
@@ -130,7 +130,8 @@ function createGrid(rows, cols) {
         square.classList.add('grid-item');
         container.appendChild(square);
         square.addEventListener('mouseover', () => {
-            changeColorWithRainbowMode(square);
+            if(!mouseDown) return 
+            paintCell(square);
         });
     }
 }
@@ -145,3 +146,12 @@ rainbowButton.addEventListener('click', toggleRainbowMode);
 eraserButton.addEventListener('click', toggleEraserMode);
 
 
+let mouseDown = false;
+document.body.onmousedown = () => {
+    console.log("mouse down");
+    mouseDown = true;
+};
+document.body.onmouseup = () => {
+    console.log("mouse up");
+    mouseDown = false;
+};
